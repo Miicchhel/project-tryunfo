@@ -16,5 +16,27 @@ form {
 
 .card {
   border: 2px solid red;
+  height: 482px;
+  max-width: 229px;
   padding: 15px;
+  width: 229px;
+}
+
+.card img {
+  height: 180px;
+}
+
+.card-description {
+  background-color: rgb(130, 131, 81);
+  box-sizing: border-box;
+  height: auto;
+  max-width: 100%;
+  min-height: 80px;
+  padding: 5px;
+  width: 100%;
+}
+
+.card-description p {
+  overflow-wrap: break-word;
+  width: 100%;
 }

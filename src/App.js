@@ -15,6 +15,7 @@ class App extends React.Component {
     cardTrunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
+    data: [],
   };
 
   onInputChange = ({ target }) => {
@@ -55,7 +56,21 @@ class App extends React.Component {
     });
   };
 
-  onSaveButtonClick = () => ('');
+  onSaveButtonClick = (card) => {
+    const {
+      data,
+    } = this.state;
+    this.setState(() => ({
+      data: [...data, card],
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: '',
+    }));
+  };
 
   render() {
     const {
