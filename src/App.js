@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import './app.css';
 import Card from './components/Card';
+import ShowCard from './components/ShowCard';
 
 class App extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     data: [],
+    filterCard: '',
   };
 
   onInputChange = ({ target }) => {
@@ -94,6 +96,14 @@ class App extends React.Component {
     }
   };
 
+  findCard = ({ target }) => {
+    const { value } = target;
+    // const f
+    this.setState(() => ({
+      filterCard: value,
+    }));
+  };
+
   render() {
     const {
       cardName,
@@ -107,6 +117,7 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
       data,
+      filterCard,
     } = this.state;
     return (
       <>
@@ -115,6 +126,15 @@ class App extends React.Component {
         </header>
         <main>
           <section className="section-container">
+
+            <section className="section-filter">
+              <input
+                type="text"
+                data-testid="name-filter"
+                placeholder="Nome da carta"
+                onChange={ this.findCard }
+              />
+            </section>
 
             <section className="section-form">
               <Form
@@ -147,29 +167,7 @@ class App extends React.Component {
           </section>
 
           <section className="section-show-card">
-            {
-              data.map((card) => (
-                <div key={ card.cardName }>
-                  <Card
-                    cardName={ card.cardName }
-                    cardDescription={ card.cardDescription }
-                    cardAttr1={ card.cardAttr1 }
-                    cardAttr2={ card.cardAttr2 }
-                    cardAttr3={ card.cardAttr3 }
-                    cardImage={ card.cardImage }
-                    cardRare={ card.cardRare }
-                    cardTrunfo={ card.cardTrunfo }
-                  />
-                  <button
-                    type="button"
-                    data-testid="delete-button"
-                    onClick={ () => (this.deleteCard(card)) }
-                  >
-                    Excluir
-                  </button>
-                </div>
-              ))
-            }
+            <ShowCard filterCard={ filterCard } data={ data } deleteCard={ this.deleteCard } />
           </section>
         </main>
       </>
