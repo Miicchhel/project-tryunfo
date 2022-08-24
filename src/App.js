@@ -16,9 +16,9 @@ class App extends React.Component {
     isSaveButtonDisabled: false,
   };
 
-  onInputChange = () => ();
+  onInputChange = () => ('');
 
-  onSaveButtonClick = () => ();
+  onSaveButtonClick = () => ('');
 
   render() {
     const {
