@@ -39,6 +39,8 @@ class Form extends React.Component {
             data-testid="description-input"
             type="text"
             id="description"
+            rows="4"
+            cols="35"
             name="cardDescription"
             value={ cardDescription }
             onChange={ onInputChange }

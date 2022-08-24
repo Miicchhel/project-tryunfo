@@ -1,29 +1,33 @@
 main {
   display: flex;
+  flex-direction: column;
   gap: 15px;
+}
+
+.section-container {
+  display: flex;
 }
 
 form {
   background-color: rgba(236, 0, 0, 0.164);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 482px;
   justify-content: space-evenly;
   max-width: 300px;
-  min-height: 482px;
   padding: 0 15px;
 }
 
 .card {
   border: 2px solid red;
-  height: 482px;
+  height: 448px;
   max-width: 229px;
   padding: 15px;
   width: 229px;
 }
 
 .card img {
-  height: 180px;
+  height: 120px;
 }
 
 .card-description {
@@ -39,4 +43,10 @@ form {
 .card-description p {
   overflow-wrap: break-word;
   width: 100%;
+}
+
+.section-show-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
